@@ -20,38 +20,38 @@
         ?>
 
         <div class="parallax-container">
-            <div class="parallax">
-                <img src="http://www.hdcarwallpapers.com/walls/super_sports_cars-HD.jpg">
-            </div>
-
-            <div class="row">
-                <div class="col l4 m12">
-                    <div class="card cyan darken-4">
-                        <div class="card-content white-text">
-                            <span class="card-title">Compete against your friends</span>
-                            <p>If you sign up, you can use compare scores against your friends when you race.</p>
+            <div class="slider fullscreen">
+                <ul class="slides">
+                    <li>
+                        <div class="parallax">
+                            <img src="http://www.hdcarwallpapers.com/walls/super_sports_cars-HD.jpg">
                         </div>
-                        <div class="card-action">
-                            <a href="#">Sign up here</a>
+                        <div class="caption left-align">
+                          <h3><span class="card-title">Compete against your friends</span></h3>
+                          <h5 class="light grey-text text-lighten-3">If you sign up, you can use compare scores against your friends when you race.</h5>
                         </div>
-                    </div>
-                </div>
-                <div class="col l4 m12">
-                    <div class="card cyan darken-4">
-                        <div class="card-content white-text">
-                            <span class="card-title">Customize your car</span>
-                            <p>You can add your unique identity to the streets by changing up the look on your car.</p>
+                    </li>
+                    <li>
+                        <div class="parallax">
+                            <img src="http://www.hdcarwallpapers.com/walls/mazda_rx_vision_concept-HD.jpg">
                         </div>
-                    </div>
-                </div>
-                <div class="col l4 m12">
-                    <div class="card cyan darken-4">
-                        <div class="card-content white-text">
-                            <span class="card-title">See how you progress</span>
-                            <p>Explore the scores that other people are getting and try to keep up with them, it's okay if you don't though, we still care for you :)</p>
+                        <div class="caption left-align">
+                          <h3><span class="card-title">Customize your car</span></h3>
+                          <h5 class="light grey-text text-lighten-3">You can add your unique identity to the streets by changing up the look on your car.</h5>
                         </div>
-                    </div>
-                </div>
+                        
+                    </li>
+                    <li>
+                        <div class="parallax">
+                            <img src="http://www.hdcarwallpapers.com/walls/ferrari_f12_berlinetta-wide.jpg">
+                        </div>
+                        <div class="caption left-align">
+                          <h3><span class="card-title">See how you progress</span></h3>
+                          <h5 class="light grey-text text-lighten-3">Explore the scores that other people are getting and try to keep up with them, it's okay if you don't though, we still care for you :)</h5>
+                        </div>
+                        
+                    </li>     
+                </ul>
             </div>
         </div>
     </main>

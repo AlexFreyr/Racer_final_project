@@ -1,0 +1,5 @@
+*.xml
+.idea/Racer_final_project.iml
+*.iml
+.idea/misc.xml
+*.htaccess

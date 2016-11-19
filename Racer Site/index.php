@@ -15,28 +15,17 @@
 
 <body>
     <main>
-        <nav>
-            <div class="nav-wrapper cyan darken-3">
-                <a href="#!" class="brand-logo center"><i class="material-icons">directions_car</i>Racer</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#"><i class="material-icons left">perm_identity</i>Login / signup</a></li>
-                    <li><a href="#"><i class="material-icons left">assessment</i>All scores</a></li>
-                </ul>
-
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="#"><i class="material-icons left">perm_identity</i>Login / signup</a></li>
-                    <li><a href="#"><i class="material-icons left">assessment</i>All scores</a></li>
-                </ul>
-
-            </div>
-        </nav>
+        <?php
+            include "static/header.php";
+        ?>
 
         <div class="parallax-container">
-            <div class="parallax"><img src="http://www.hdcarwallpapers.com/walls/super_sports_cars-HD.jpg"></div>
+            <div class="parallax">
+                <img src="http://www.hdcarwallpapers.com/walls/super_sports_cars-HD.jpg">
+            </div>
 
             <div class="row">
-                <div class="col s4">
+                <div class="col l4 m12">
                     <div class="card cyan darken-4">
                         <div class="card-content white-text">
                             <span class="card-title">Compete against your friends</span>
@@ -47,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s4">
+                <div class="col l4 m12">
                     <div class="card cyan darken-4">
                         <div class="card-content white-text">
                             <span class="card-title">Customize your car</span>
@@ -55,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s4">
+                <div class="col l4 m12">
                     <div class="card cyan darken-4">
                         <div class="card-content white-text">
                             <span class="card-title">See how you progress</span>
@@ -67,34 +56,10 @@
         </div>
     </main>
 
-    <footer class="page-footer cyan darken-3">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Racer co.</h5>
-                    <p class="grey-text text-lighten-4">
-                        Contact us at
-                        <a href="mailto:vorur.mail@gmail.com" class="grey-text text-lighten-3">
-                            vorur.mail@gmail.com
-                        </a>
-                        to get in touch!</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">This project is powered by</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="https://github.com/AlexKnows/Racer_final_project">Github</a></li>
-                        <li><a class="grey-text text-lighten-3" href="http://materializecss.com/">Materialize</a></li>
-                        <li><a class="grey-text text-lighten-3" href="https://python.org">Python</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2016 Racer co.
-            </div>
-        </div>
-    </footer>
+    <!--Footer goes outside the main tag to make sure it stays on the bottom of the page-->
+    <?php
+        include "static/footer.php";
+    ?>
 
     <!--Import jQuery before materialize.js-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

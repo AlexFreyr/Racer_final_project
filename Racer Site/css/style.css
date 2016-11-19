@@ -11,3 +11,18 @@ main {
 .parallax-container {
     height: 1000px;
 }
+
+footer.page-footer{
+    margin-top: 0;
+}
+
+@media screen and (max-width: 992px) {
+    .parallax-container{
+        height: 550px;
+    }
+}
+@media screen and (max-width: 600px){
+    .parallax-container{
+        height: 750px;
+    }
+}

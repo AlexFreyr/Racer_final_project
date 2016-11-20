@@ -7,7 +7,7 @@ The language we will focus on for the project is Python for the actual game it s
 
 ## How to play the game
 1. Download the game from github
-2. Go to the [racer sign up page](http://vorur.info/). And sign up for a new account
+2. Go to the [racer sign up page](http://vorur.info/login.php). And sign up for a new account
 3. Launch game from where you downloaded it
 4. Sign in
 5. Now you're playing!

@@ -2,8 +2,9 @@ import pygame
 import time
 import random
 pygame.init()
-display_width = 1200
-display_height = 800
+display_width = 1500
+display_height = 900
+game_speed = 60
 
 black = (0, 0, 0)
 white = (255, 255, 255)
@@ -59,14 +60,16 @@ def game_loop():
     x = (display_width * 0.45)
     y = (display_height * 0.6)
     car_width = 170
+    car_height = 300
     x_change = 0
+    y_change = 0
 
     #things(thingx, thingy, thingw, thingh, color):
     thing_startx = random.randrange(0, display_width)
     thing_starty = -600
     thing_speed = 4
     thing_width = 120
-    thing_height = 170
+    thing_height = 230
     dodged = 0
 
     gameExit = False
@@ -79,14 +82,21 @@ def game_loop():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     x_change = -10
-                elif event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT:
                     x_change = 10
+                if event.key == pygame.K_UP:
+                    y_change = -5
+                if event.key == pygame.K_DOWN:
+                    y_change = 10
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     x_change = 0
+                if event.key == pygame.K_DOWN or event.key == pygame.K_UP:
+                    y_change = 0
 
         x += x_change
+        y += y_change
 
         gameDisplay.fill(white)
 
@@ -98,6 +108,9 @@ def game_loop():
         if x > display_width - car_width or x < 0:
             crash()
 
+        if y > display_height - car_height or y < 0:
+            crash()
+
         if thing_starty > display_height:
             thing_starty = 0 - thing_height - 150
             thing_startx = random.randrange(0, display_width - 200)
@@ -107,9 +120,10 @@ def game_loop():
         if y < thing_starty + thing_height:
             print('y crossover')
 
-            if x > thing_startx  and x < thing_startx + thing_width +25 or x + car_width > thing_startx and x + car_width < thing_startx + thing_width+25:
+            if thing_startx <= x <= thing_startx + thing_width or x + car_width > thing_startx and x + car_width < thing_startx + thing_width:
                 print('X crossover')
                 crash()
+
 
         pygame.display.update()
         clock.tick(60)

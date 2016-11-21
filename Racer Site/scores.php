@@ -19,12 +19,39 @@
             include "static/header.php";
         ?>
         <div class="row">
-            <div class="col s12 l6">
+        <div class="col s8 offset-s2">
+        <!--Hérna Þarf að bætta bið Javascript kóða til að þetta verði Search-->
+         
+         <input placeholder="Search" id="tableSearch" type="text" class="validate">
+         
+                 <table id="table" class="centered">
+                    <thead>
+                      <tr>
+                          <th data-field="id">Name</th>
+                          <th data-field="name">Item Name</th>
+                          <th data-field="price">Item Price</th>
+                      </tr>
+                    </thead>
 
-            </div>
-            <div class="col s12 l6">
-
-            </div>
+                    <tbody>
+                      <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                      </tr>
+                      <tr>
+                        <td>Alan</td>
+                        <td>Jellybean</td>
+                        <td>$3.76</td>
+                      </tr>
+                      <tr>
+                        <td>Jonathan</td>
+                        <td>Lollipop</td>
+                        <td>$7.00</td>
+                      </tr>
+                    </tbody>
+                    </table>
+                </div>
         </div>
     </main>
 
@@ -39,5 +66,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
+    <script src="javascript/score.js"></script>
 </body>
 </html>

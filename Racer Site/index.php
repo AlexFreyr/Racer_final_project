@@ -24,7 +24,7 @@
                 <ul class="slides">
                     <li>
                         <div class="parallax">
-                            <img src="http://www.hdcarwallpapers.com/walls/super_sports_cars-HD.jpg">
+                            <img src="http://www.hdcarwallpapers.com/walls/2017_acura_tlx_gt_package-HD.jpg">
                         </div>
                         <div class="caption left-align">
                           <h3><span class="card-title">Compete against your friends</span></h3>
@@ -43,7 +43,7 @@
                     </li>
                     <li>
                         <div class="parallax">
-                            <img src="http://www.hdcarwallpapers.com/walls/ferrari_f12_berlinetta-wide.jpg">
+                            <img src="http://www.hdcarwallpapers.com/walls/2017_chevrolet_camaro_ss-HD.jpg">
                         </div>
                         <div class="caption left-align">
                           <h3><span class="card-title">See how you progress</span></h3>
@@ -67,5 +67,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.js"></script> 
 </body>
 </html>

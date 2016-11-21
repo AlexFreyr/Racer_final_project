@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Custom css scripts go below this comment-->
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    
+
 
 </head>
 
@@ -21,10 +23,15 @@
         <div class="row">
         <div class="col s8 offset-s2">
         <!--Hérna Þarf að bætta bið Javascript kóða til að þetta verði Search-->
+          <div class="row">
+            <div class="input-field col s3">
+              <input id="tableSearch" type="text" class="validate">
+              <label for="tableSearch">Search</label>
+            </div>
+          </div>
          
-         <input placeholder="Search" id="tableSearch" type="text" class="validate">
          
-                 <table id="table" class="centered">
+                 <table id="table" class=" highlight">
                     <thead>
                       <tr>
                           <th data-field="id">Name</th>
@@ -67,5 +74,7 @@
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
     <script src="javascript/score.js"></script>
+    <script type="text/javascript" src="javascript/jquery.tablesorter.js"></script> 
+
 </body>
 </html>

@@ -14,8 +14,8 @@ class Run:
         self.screen = screen
         self.clock = pygame.time.Clock()
         # Alex: I can't load the images without having the full path ?
-        self.carImg = pygame.image.load(os.path.join('C:\\Users\\Notandi\\Desktop\\Racer-python\\src', 'blue_car.png'))
-        self.carsImg = pygame.image.load(os.path.join('C:\\Users\\Notandi\\Desktop\\Racer-python\\src', 'cars.png'))
+        self.carImg = pygame.image.load(os.path.join('src', 'blue_car.png'))
+        self.carsImg = pygame.image.load(os.path.join('src', 'cars.png'))
         self.display_width = display_width
         self.display_height = display_height
         self.run_game()
@@ -56,7 +56,7 @@ class Run:
 
         x = (self.display_width * 0.5)
         y = (self.display_height * 0.5)
-        car_width = 170
+        car_width = 120
         car_height = 300
         x_change = 0
         y_change = 0
@@ -108,12 +108,15 @@ class Run:
                 dodged += 1
                 thing_speed += 1
 
-            if y < thing_starty + thing_height:
-                print('y crossover')
 
-                if thing_startx <= x <= thing_startx + thing_width or thing_startx < x + car_width < thing_startx + thing_width:
-                    print('X crossover')
-                    self.crash()
+            if x >= thing_startx and x <= thing_startx + thing_width - 25 and y < thing_starty + thing_height:
+                print('X crossover')
+                self.crash()
+
+            if x + car_width >= thing_startx - 25 and x + car_width <= thing_startx + thing_width and y < thing_starty + thing_height:
+                print('X crossover')
+                self.crash()
+
 
             pygame.display.update()
             clock.tick(60)

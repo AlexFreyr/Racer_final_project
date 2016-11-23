@@ -25,6 +25,21 @@
                 <div class="card grey lighten-5">
                     <div class="card-content black-text">
                         <div class="row">
+                            <img class="bannerFAQ responsive-img fullscreen" src="./images/FAQ2.jpg">
+                            <ul class="collapsible popout" data-collapsible="accordion">
+                                <li>
+                                  <div class="collapsible-header"><i class="material-icons">place</i>Where can i get the game?</div>
+                                  <div class="collapsible-body"><p>Well currently the only way to play the game is to go to the front page and click the github link at the bottom and there you can download the game and play. In the future we hope to get a download up and running on our site so you don't have to fork the github</p></div>
+                                </li>
+                                <li>
+                                  <div class="collapsible-header"><i class="material-icons">games</i>Do I need to make an account to play the game?</div>
+                                  <div class="collapsible-body"><p>Yes you do you have to make an account with us, you can do that by going over the sign in / sign up tab at the top of the website and making an account there. You will be sent a comformation email to the email address you provided confirming that you did indeed make an account with us. After that you´re ready to start playing, good luck :)</p></div>
+                                </li>
+                                <li>
+                                  <div class="collapsible-header"><i class="material-icons">whatshot</i>On your main page you advertise multiplayer and car customization but they don't seem to be in a the game?</div>
+                                  <div class="collapsible-body"><p>These are things we hope to add into the game in the future as dlc, currently we are working on the core of the game.</p></div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

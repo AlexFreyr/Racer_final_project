@@ -49,7 +49,6 @@
                           <h3><span class="card-title">See how you progress</span></h3>
                           <h5 class="light grey-text text-lighten-3">Explore the scores that other people are getting and try to keep up with them, it's okay if you don't though, we still care for you :)</h5>
                         </div>
-                        
                     </li>     
                 </ul>
             </div>
@@ -67,6 +66,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
-    <script type="text/javascript" src="jquery.tablesorter.js"></script> 
 </body>
 </html>

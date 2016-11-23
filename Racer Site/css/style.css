@@ -28,10 +28,12 @@ footer.page-footer{
 }
 .slider {
   margin: 0 auto;
-  height: 1000;
+  height: 1000px;
+}
+.slider .indicators .indicator-item.active {
+    background-color: #006064;
 }
 h3 {
-
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 h5 {

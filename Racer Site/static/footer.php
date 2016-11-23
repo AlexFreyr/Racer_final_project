@@ -6,7 +6,7 @@
  * Description: This is the static footer for the website
  */
 
-echo '<footer class="page-footer cyan darken-3">
+echo '<footer class="page-footer cyan darken-4">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
@@ -30,7 +30,7 @@ echo '<footer class="page-footer cyan darken-3">
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2016 Racer co.
+                © 2016 Racer Inc.
             </div>
         </div>
     </footer>';

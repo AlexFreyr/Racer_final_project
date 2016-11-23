@@ -7,7 +7,7 @@
  */
 
 echo '<nav>
-            <div class="nav-wrapper cyan darken-3">
+            <div class="nav-wrapper cyan darken-4">
                 <a href="index.php" class="brand-logo center"><i class="material-icons">directions_car</i>Racer</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">

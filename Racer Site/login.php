@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col s12 m6">
                         <div class="card grey lighten-5">
-                            <div class="card-content black-text">
+                            <div class="card-content black-text" id="login-form">
                                 <span class="card-title">Login</span>
                                 <input placeholder="Enter Username" id="login_username" type="text" class="validate">
                                 <input placeholder="Enter Password" id="login_password" type="password" class="validate">

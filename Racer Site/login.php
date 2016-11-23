@@ -36,10 +36,10 @@
                     </div>
                     <div class="col s12 m6">
                         <div class="card grey lighten-5">
-                            <div class="card-content black-text">
+                            <div class="card-content black-text" id="signup-form">
                                 <span class="card-title">Sign up</span>
                                 <input placeholder="Enter New Username" id="new_username" type="text" class="validate">
-                                <input placeholder="Enter Email" id="new_email" type="text" class="validate">
+                                <input placeholder="Enter Email" id="new_email" type="email" class="validate">
                                 <input placeholder="Enter Password" id="new_password" type="password" class="validate">
                                 <input placeholder="Re-Enter Password" id="new_repassword" type="password" class="validate">
                                 <a class="waves-effect waves-light btn" id="signup_button"><i class="material-icons right">send</i>Submit</a>

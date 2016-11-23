@@ -24,11 +24,12 @@
                 <ul class="slides">
                     <li>
                         <div class="parallax">
-                            <img src="http://www.hdcarwallpapers.com/walls/2017_acura_tlx_gt_package-HD.jpg">
+                            <img src="http://www.hdcarwallpapers.com/walls/2015_mercedes_benz_glc_coupe_concept_2-wide.jpg">
                         </div>
                         <div class="caption left-align">
-                          <h3><span class="card-title">Compete against your friends</span></h3>
-                          <h5 class="light grey-text text-lighten-3">If you sign up, you can use compare scores against your friends when you race.</h5>
+                          
+                          <h3><span class="card-title">See how you progress</span></h3>
+                          <h5 class="light grey-text text-lighten-3">Explore the scores that other people are getting and try to keep up with them, it's okay if you don't though, we still care for you :)</h5>
                         </div>
                     </li>
                     <li>
@@ -46,8 +47,8 @@
                             <img src="http://www.hdcarwallpapers.com/walls/2017_chevrolet_camaro_ss-HD.jpg">
                         </div>
                         <div class="caption left-align">
-                          <h3><span class="card-title">See how you progress</span></h3>
-                          <h5 class="light grey-text text-lighten-3">Explore the scores that other people are getting and try to keep up with them, it's okay if you don't though, we still care for you :)</h5>
+                          <h3><span class="card-title">Compete against your friends</span></h3>
+                          <h5 class="light grey-text text-lighten-3">If you sign up, you can use compare scores against your friends when you race.</h5>
                         </div>
                     </li>     
                 </ul>

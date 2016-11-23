@@ -13,11 +13,18 @@ echo '<nav>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="../login.php"><i class="material-icons left">perm_identity</i>Login / signup</a></li>
                     <li><a href="../scores.php"><i class="material-icons left">assessment</i>All scores</a></li>
+
+                </ul>
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="../faq.php"><i class="material-icons left">flag</i>FAQ</a></li>
                 </ul>
 
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="../login.php"><i class="material-icons left">perm_identity</i>Login / signup</a></li>
                     <li><a href="../scores.php"><i class="material-icons left">assessment</i>All scores</a></li>
+                    <li><a href="../faq.php"><i class="material-icons left">flag</i>FAQ</a></li>
+
+
                 </ul>
 
             </div>

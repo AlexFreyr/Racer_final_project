@@ -39,17 +39,17 @@ try {
             ));
 
             $subject = 'Racer confirmation email';
-            $message = '
+            $message = "
                         <html>
                         <head>
                           <title>Racer Confirmation page</title>
                         </head>
                         <body>
                            <h2>Thank you for signing up with Racer.</h2>
-                           <p>Please click <a href="http://vorur.info/confirmation.php">this link</a> to activate your account and get started competing with your friends.</p>
+                           <p>Please click <a href='http://vorur.info/confirmation.php?n=$username&code=$key'>this link</a> to activate your account and get started competing with your friends.</p>
                         </body>
                         </html>
-                        ';
+                        ";
 
             // To send HTML mail, the Content-type header must be set
             $headers  = 'MIME-Version: 1.0' . "\r\n";

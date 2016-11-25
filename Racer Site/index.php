@@ -24,7 +24,7 @@
                 <ul class="slides">
                     <li>
                         <div class="parallax">
-                            <img src="http://www.hdcarwallpapers.com/walls/2015_mercedes_benz_glc_coupe_concept_2-wide.jpg">
+                            <img src="images/mercedes.jpg">
                         </div>
                         <div class="caption left-align">
                           
@@ -34,7 +34,7 @@
                     </li>
                     <li>
                         <div class="parallax">
-                            <img src="http://www.hdcarwallpapers.com/walls/mazda_rx_vision_concept-HD.jpg">
+                            <img src="images/mazda.jpg">
                         </div>
                         <div class="caption left-align">
                           <h3><span class="card-title">Customize your car</span></h3>
@@ -44,7 +44,7 @@
                     </li>
                     <li>
                         <div class="parallax">
-                            <img src="http://www.hdcarwallpapers.com/walls/2017_chevrolet_camaro_ss-HD.jpg">
+                            <img src="images/chevrolet.jpg">
                         </div>
                         <div class="caption left-align">
                           <h3><span class="card-title">Compete against your friends</span></h3>

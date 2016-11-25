@@ -10,16 +10,18 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT `id`, `username` FROM `racers` WHERE `username`='$username' AND `password`='$password'";
+    $password_hash = null;
+    $confirmed = null;
+    $sql = "SELECT `password`, `confirmed` FROM `racers` WHERE `username`='$username'";
 
     foreach ($dbh->query($sql) as $row)
     {
-        $user_exists = $row["id"];
+        $password_hash = $row["password"];
+        $confirmed = $row["confirmed"];
     }
 
-    if(isset($user_exists)){
+    if(password_verify($password, $password_hash) && $confirmed == 1){
         print "Success";
     }else{
         print "Failure";
     }
-?>

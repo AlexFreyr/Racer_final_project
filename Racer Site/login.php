@@ -30,7 +30,14 @@
                                 <span class="card-title">Login</span>
                                 <input placeholder="Enter Username" id="login_username" type="text" class="validate">
                                 <input placeholder="Enter Password" id="login_password" type="password" class="validate">
-                                <a class="waves-effect waves-light btn" id="login_button"><i class="material-icons right">send</i>Continue</a>
+                                <div class="row">
+                                    <div class="col l12">
+                                        <a class="waves-effect waves-light btn" id="login_button"><i class="material-icons right">send</i>Continue</a>
+                                    </div>
+                                    <div class="col l12">
+                                        <p class="flow-text"><a href="recover.php">Forgotten password?</a></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

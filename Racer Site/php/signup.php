@@ -27,13 +27,18 @@ try {
         if (isset($user_exists)) {
             echo "Email";
         } else {
+            $options = [
+                'cost' => 12,
+            ];
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT, $options);
+
             $key = sha1($username);
             $statement = $dbh->prepare("INSERT INTO racers(username, email, password, confirm_code, confirmed) 
                                         VALUES(:username, :email, :password, :confirm_code, :confirmed)");
             $statement->execute(array(
                 "username" => $username,
                 "email" => $email,
-                "password" => $password,
+                "password" => $hashed_password,
                 "confirm_code" => (string)$key,
                 "confirmed" => 0
             ));

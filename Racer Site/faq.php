@@ -25,7 +25,8 @@
                 <div class="card grey lighten-5">
                     <div class="card-content black-text">
                         <div class="row">
-                            <img class="bannerFAQ responsive-img fullscreen" src="./images/FAQ2.jpg">
+
+                            <img class="bannerFAQ responsive-img fullscreen" src="./images/FAQ3.png">
                             <ul class="collapsible popout" data-collapsible="accordion">
                                 <li>
                                   <div class="collapsible-header"><i class="material-icons">place</i>Where can i get the game?</div>
@@ -63,6 +64,7 @@
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
     <script src="javascript/score.js"></script>
+    <script src="https://use.fontawesome.com/0f8675ccce.js"></script>
 
 </body>
 </html>

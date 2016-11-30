@@ -70,5 +70,6 @@
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
     <script src="javascript/login.js"></script>
+    <script src="https://use.fontawesome.com/0f8675ccce.js"></script>
 </body>
 </html>

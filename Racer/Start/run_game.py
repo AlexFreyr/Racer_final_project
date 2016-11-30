@@ -4,18 +4,27 @@ import os
 import time
 from Menu.menu import Pause
 from Text.text import Text
+from Login.login import Login
+
+
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+pygame.mixer.init()
+pygame.mixer.music.load('Music/razersoundtrack.mp3')
 
 
 class Run:
-    def __init__(self, screen, display_width, display_height):
+    def __init__(self,user_id, user, screen, display_width, display_height):
+        self.user_id = user_id
+        self.user = user
         self.screen = screen
         self.clock = pygame.time.Clock()
         # Alex: I can't load the images without having the full path ?
         self.carImg = pygame.image.load(os.path.join('src', 'blue_car.png'))
         self.carsImg = pygame.image.load(os.path.join('src', 'cars.png'))
+        self.backgroundimg = pygame.image.load(os.path.join('src', 'Road.jpg'))
+        self.backgroundpossition = [0, 0]
         self.display_width = display_width
         self.display_height = display_height
         self.run_game()
@@ -25,12 +34,12 @@ class Run:
 
     def things_dodged(self, count):
         font = pygame.font.SysFont(None, 25)
-        text = font.render("Dodged: " + str(count), True, BLACK)
+        text = font.render(str(self.user) +" Score: " + str(count), True, BLACK)
         self.screen.blit(text, (0, 0))
 
     def things(self, thingx, thingy, thingw, thingh, color):
         pygame.draw.rect(self.screen, color, [thingx, thingy, thingw, thingh])
-        self.screen.blit(self.carsImg, (thingx - 25, thingy - 50))
+        self.screen.blit(self.carsImg, (thingx -15, thingy -5))
 
     def car(self, x, y):
         self.screen.blit(self.carImg, (x, y))
@@ -42,7 +51,7 @@ class Run:
         seconds = 0
         while seconds < 3:
             self.screen.fill(WHITE)
-            t.draw_text_raw("You crashed!", self.display_width / 2, self.display_height / 2, 100)
+            t.draw_text_raw(str(self.user) + " you crashed!", self.display_width / 2, self.display_height / 2, 100)
             respawn_timer.draw_text_raw(str(3 - seconds) + " seconds until respawn", self.display_width / 2, self.display_height / 2.5)
             pygame.display.update()
             time.sleep(1)
@@ -51,21 +60,23 @@ class Run:
         self.run_game()
 
     def run_game(self):
+        pygame.mixer.music.play(-1)
         running = True
         clock = pygame.time.Clock()
 
         x = (self.display_width * 0.5)
-        y = (self.display_height * 0.5)
-        car_width = 120
-        car_height = 300
+        y = (self.display_height * 0.75)
+        car_width = 94
+        car_height = 214
         x_change = 0
         y_change = 0
 
         thing_startx = random.randrange(0, self.display_width)
         thing_starty = -600
         thing_speed = 4
-        thing_width = 120
-        thing_height = 230
+        thing_width = 70
+        thing_height = 190
+
         dodged = 0
 
         while running:
@@ -79,10 +90,6 @@ class Run:
                         x_change = -10
                     if event.key == pygame.K_RIGHT:
                         x_change = 10
-                    if event.key == pygame.K_UP:
-                        y_change = -5
-                    if event.key == pygame.K_DOWN:
-                        y_change = 10
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                         x_change = 0
@@ -90,7 +97,7 @@ class Run:
                         y_change = 0
             x += x_change
             y += y_change
-            self.screen.fill(WHITE)
+            self.screen.blit(self.backgroundimg, self.backgroundpossition)
             self.things(thing_startx, thing_starty, thing_width, thing_height, BLACK)
             thing_starty += thing_speed
             self.car(x, y)
@@ -108,17 +115,15 @@ class Run:
                 dodged += 1
                 thing_speed += 1
 
-
-            if x >= thing_startx and x <= thing_startx + thing_width - 25 and y < thing_starty + thing_height:
+            if x >= thing_startx and x <= thing_startx + thing_width + 24 and y < thing_starty + thing_height:
                 print('X crossover')
                 self.crash()
 
-            if x + car_width >= thing_startx - 25 and x + car_width <= thing_startx + thing_width and y < thing_starty + thing_height:
+            if x + car_width >= thing_startx and x + car_width <= thing_startx + thing_width + 24and y < thing_starty + thing_height:
                 print('X crossover')
                 self.crash()
-
 
             pygame.display.update()
-            clock.tick(60)
+            clock.tick(144)
         pygame.quit()
         quit()

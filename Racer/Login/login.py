@@ -10,10 +10,11 @@ class Login:
                                           charset='utf8mb4',
                                           cursorclass=pymysql.cursors.DictCursor)
         self.id = None
+        self.user = None
 
     def login(self, username, password):
         with self.connection.cursor() as cursor:
-            sql = "SELECT `id` FROM `racers` WHERE `username`=%s AND `password`=%s"
+            sql = "SELECT `id`,`username` FROM `racers` WHERE `username`=%s AND `password`=%s"
             cursor.execute(sql, (username, password))
             result = cursor.fetchone()
 
@@ -21,5 +22,6 @@ class Login:
 
             if result != None:
                 self.id = result["id"]
+                self.user = result["username"]
                 return True
             return False

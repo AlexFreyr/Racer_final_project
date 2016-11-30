@@ -39,6 +39,10 @@
                                   <div class="collapsible-header"><i class="material-icons">whatshot</i>On your main page you advertise multiplayer and car customization but they don't seem to be in a the game?</div>
                                   <div class="collapsible-body"><p>These are things we hope to add into the game in the future as dlc, currently we are working on the core of the game.</p></div>
                                 </li>
+                                 <li>
+                                  <div class="collapsible-header"><i class="material-icons">games</i>What do you in the game?</div>
+                                  <div class="collapsible-body"><p>You avoid oncoming traffic and try to find your wife</p></div>
+                                </li>
                             </ul>
                         </div>
                     </div>

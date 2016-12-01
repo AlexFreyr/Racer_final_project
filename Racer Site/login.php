@@ -35,7 +35,7 @@
                                         <a class="waves-effect waves-light btn" id="login_button"><i class="material-icons right">send</i>Continue</a>
                                     </div>
                                     <div class="col l12">
-                                        <p class="flow-text"><a href="recover.php">Forgotten password?</a></p>
+                                        <h6  class="flow-text" ><a href="recover.php">Forgotten password?</a></h6>
                                     </div>
                                 </div>
                             </div>

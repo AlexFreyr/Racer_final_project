@@ -26,7 +26,8 @@
                     <div class="card-content black-text">
                         <div class="row">
 
-                            <img class="bannerFAQ responsive-img fullscreen" src="./images/FAQ3.png">
+                            <img class="bannerFAQ responsive-img fullscreen" src="./images/FAQ4.png">
+                            
                             <ul class="collapsible popout" data-collapsible="accordion">
                                 <li>
                                   <div class="collapsible-header"><i class="material-icons">place</i>Where can i get the game?</div>

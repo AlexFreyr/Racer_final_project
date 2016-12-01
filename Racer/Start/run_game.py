@@ -41,6 +41,14 @@ class Run:
         pygame.draw.rect(self.screen, color, [thingx, thingy, thingw, thingh])
         self.screen.blit(self.carsImg, (thingx -15, thingy -5))
 
+    def things2(self, thing2x, thing2y, thing2w, thing2h, color2):
+        pygame.draw.rect(self.screen, color2, [thing2x, thing2y, thing2w, thing2h])
+        self.screen.blit(self.carsImg, (thing2x -15, thing2y -5))
+
+    def things3(self, thing3x, thing3y, thing3w, thing3h, color3):
+        pygame.draw.rect(self.screen, color3, [thing3x, thing3y, thing3w, thing3h])
+        self.screen.blit(self.carsImg, (thing3x - 15, thing3y - 5))
+
     def car(self, x, y):
         self.screen.blit(self.carImg, (x, y))
 
@@ -77,6 +85,16 @@ class Run:
         thing_width = 70
         thing_height = 190
 
+        thing2_startx = random.randrange(0, self.display_width)
+        thing2_starty = -800
+        thing2_width = 70
+        thing2_height = 190
+
+        thing3_startx = random.randrange(0, self.display_width)
+        thing3_starty = -1000
+        thing3_width = 70
+        thing3_height = 190
+
         dodged = 0
 
         while running:
@@ -100,6 +118,15 @@ class Run:
             self.screen.blit(self.backgroundimg, self.backgroundpossition)
             self.things(thing_startx, thing_starty, thing_width, thing_height, BLACK)
             thing_starty += thing_speed
+
+            if dodged > 4:
+                self.things2(thing2_startx, thing2_starty, thing2_width, thing2_height, BLACK)
+                thing2_starty += thing_speed
+
+            if dodged > 9:
+                self.things3(thing3_startx, thing3_starty, thing3_width, thing3_height, BLACK)
+                thing3_starty += thing_speed
+
             self.car(x, y)
             self.things_dodged(dodged)
 
@@ -113,13 +140,41 @@ class Run:
                 thing_starty = 0 - thing_height - 150
                 thing_startx = random.randrange(0, self.display_width - 200)
                 dodged += 1
-                thing_speed += 1
+                thing_speed += 0.5
+
+            if thing2_starty > self.display_height:
+                thing2_starty = 0 - thing2_height - 150
+                thing2_startx = random.randrange(0, self.display_width - 200)
+                dodged += 1
+                thing_speed += 0.5
+
+            if thing3_starty > self.display_height:
+                thing3_starty = 0 - thing3_height - 150
+                thing3_startx = random.randrange(0, self.display_width - 200)
+                dodged += 1
+                thing_speed += 0.5
 
             if x >= thing_startx and x <= thing_startx + thing_width + 24 and y < thing_starty + thing_height:
                 print('X crossover')
                 self.crash()
 
-            if x + car_width >= thing_startx and x + car_width <= thing_startx + thing_width + 24and y < thing_starty + thing_height:
+            if x + car_width >= thing_startx and x + car_width <= thing_startx + thing_width + 24 and y < thing_starty + thing_height:
+                print('X crossover')
+                self.crash()
+
+            if x >= thing2_startx and x <= thing2_startx + thing2_width + 24 and y < thing2_starty + thing2_height:
+                print('X crossover')
+                self.crash()
+
+            if x + car_width >= thing2_startx and x + car_width <= thing2_startx + thing2_width + 24 and y < thing2_starty + thing2_height:
+                print('X crossover')
+                self.crash()
+
+            if x >= thing3_startx and x <= thing3_startx + thing3_width + 24 and y < thing3_starty + thing3_height:
+                print('X crossover')
+                self.crash()
+
+            if x + car_width >= thing3_startx and x + car_width <= thing3_startx + thing3_width + 24 and y < thing3_starty + thing3_height:
                 print('X crossover')
                 self.crash()
 

@@ -10,8 +10,6 @@ from Login.login import Login
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-pygame.mixer.init()
-pygame.mixer.music.load('Music/razersoundtrack.mp3')
 
 
 class Run:
@@ -27,6 +25,8 @@ class Run:
         self.backgroundpossition = [0, 0]
         self.display_width = display_width
         self.display_height = display_height
+        pygame.mixer.init()
+        pygame.mixer.music.load('Music/razersoundtrack.mp3')
         self.run_game()
 
     def cars(self, carsX, carsY):

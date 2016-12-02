@@ -9,8 +9,8 @@ var score_fetch = function() {
         type: "POST",
         cache: false,
         success: function(html){
-            $('#score-table').empty()
-            $('#score-table').append(html)
+            $('#score-table').empty();
+            $('#score-table').append(html);
         },
         failure: function (html){
             unexpected_error(html)

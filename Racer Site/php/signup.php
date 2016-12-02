@@ -2,15 +2,19 @@
 /**
  * Created by Alexander on 19-Nov-16.
  * This script creates a new user and inserts them into the database
+ * called from: login.js
  */
 
 
 try {
     include "connection/conn.php";
+
+    //Get the information needed
     $username = $_POST['username'];
     $email = $_POST["email"];
     $password = $_POST['password'];
 
+    //Check if there is a user that already has that username
     $sql = "SELECT `username` FROM `racers` WHERE `username`='$username'";
 
     foreach ($dbh->query($sql) as $row) {
@@ -18,21 +22,25 @@ try {
     }
 
     if (isset($user_exists)) {
-        echo "Username";
+        echo "Username"; //Return this if username is in use, the js file handles the rest
     } else {
+        //Check if email is in use
         $sql = "SELECT `email` FROM `racers` WHERE `email`='$email'";
         foreach ($dbh->query($sql) as $row) {
             $user_exists = $row["email"];
         }
         if (isset($user_exists)) {
-            echo "Email";
+            echo "Email"; //Return this if email is in use, the js file handles the rest
         } else {
             $options = [
                 'cost' => 12,
             ];
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT, $options);
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT, $options); //Make a password hash
 
+            //Make a verification key that will be sent to the email provided
             $key = sha1($username);
+
+            // Insert information into the database
             $statement = $dbh->prepare("INSERT INTO racers(username, email, password, confirm_code, confirmed) 
                                         VALUES(:username, :email, :password, :confirm_code, :confirmed)");
             $statement->execute(array(
@@ -43,6 +51,7 @@ try {
                 "confirmed" => 0
             ));
 
+            //Email information
             $subject = 'Racer confirmation email';
             $message = "
                         <html>
@@ -60,8 +69,11 @@ try {
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-            if(mail($email, $subject, $message, $headers)){
+            if(mail($email, $subject, $message, $headers)){ //If email was sent successfully
                 echo "Success";
+            }else{
+                echo "Invalid"; //Return this if there was a problem sending the email, the js file handles the rest.
+                //TODO: Make the js handle this exception
             }
         }
     }

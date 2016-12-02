@@ -10,8 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Custom css scripts go below this comment-->
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link type="scss" rel="stylesheet" href="css/stylez.scss">
-
 
 </head>
 
@@ -56,7 +54,6 @@
                 </ul>
             </div>
         </div>
-
     </main>
 
     <!--Footer goes outside the main tag to make sure it stays on the bottom of the page-->
@@ -70,7 +67,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
-    <script src="javascript/footer.js"></script>
-    <script src="https://use.fontawesome.com/0f8675ccce.js"></script>
 </body>
 </html>

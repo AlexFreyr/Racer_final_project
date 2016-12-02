@@ -25,9 +25,7 @@
                 <div class="card grey lighten-5">
                     <div class="card-content black-text">
                         <div class="row">
-
-                            <img class="bannerFAQ responsive-img fullscreen" src="./images/FAQ4.png">
-                            
+                            <img class="bannerFAQ responsive-img fullscreen" src="./images/FAQ2.jpg">
                             <ul class="collapsible popout" data-collapsible="accordion">
                                 <li>
                                   <div class="collapsible-header"><i class="material-icons">place</i>Where can i get the game?</div>
@@ -40,10 +38,6 @@
                                 <li>
                                   <div class="collapsible-header"><i class="material-icons">whatshot</i>On your main page you advertise multiplayer and car customization but they don't seem to be in a the game?</div>
                                   <div class="collapsible-body"><p>These are things we hope to add into the game in the future as dlc, currently we are working on the core of the game.</p></div>
-                                </li>
-                                 <li>
-                                  <div class="collapsible-header"><i class="material-icons">games</i>What do you in the game?</div>
-                                  <div class="collapsible-body"><p>You avoid oncoming traffic and try to find your wife</p></div>
                                 </li>
                             </ul>
                         </div>
@@ -65,7 +59,6 @@
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
     <script src="javascript/score.js"></script>
-    <script src="https://use.fontawesome.com/0f8675ccce.js"></script>
 
 </body>
 </html>

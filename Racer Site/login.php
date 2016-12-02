@@ -35,7 +35,7 @@
                                         <a class="waves-effect waves-light btn" id="login_button"><i class="material-icons right">send</i>Continue</a>
                                     </div>
                                     <div class="col l12">
-                                        <h6  class="flow-text" ><a href="recover.php">Forgotten password?</a></h6>
+                                        <p class="flow-text"><a href="recover.php">Forgotten password?</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -70,6 +70,5 @@
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
     <script src="javascript/login.js"></script>
-    <script src="https://use.fontawesome.com/0f8675ccce.js"></script>
 </body>
 </html>

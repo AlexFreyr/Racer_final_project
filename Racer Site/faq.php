@@ -19,7 +19,7 @@
         ?>
         <div class="parallax-container">
             <div class="parallax">
-                <img src="http://www.hdcarwallpapers.com/walls/super_sports_cars-HD.jpg">
+                <img src="images/bg.jpg">
             </div>
             <div class="container">
                 <div class="card grey lighten-5">
@@ -58,7 +58,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!--Custom javascript files go below this comment-->
     <script src="javascript/start.js"></script>
-    <script src="javascript/score.js"></script>
 
 </body>
 </html>

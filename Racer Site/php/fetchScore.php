@@ -4,8 +4,6 @@
  * Description: Load the data when page loads
  */
     include "connection/conn.php";
-    
-    $user_input = $_POST['user_input'];
 
     $sql = "SELECT racers.username AS username, scores.score AS score
             FROM racers

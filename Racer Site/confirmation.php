@@ -20,7 +20,7 @@
     ?>
     <div class="parallax-container">
         <div class="parallax">
-            <img src="http://www.hdcarwallpapers.com/walls/super_sports_cars-HD.jpg">
+            <img src="images/bg.jpg">
         </div>
         <div class="container">
             <div class="row">
@@ -40,7 +40,13 @@
                                     {
                                         if($row['confirm_code'] == $code){
                                             $userid = $row['id'];
-                                            $updatequery = $dbh->prepare("UPDATE `racers` SET `confirmed`='1', `confirm_code`='0' WHERE `id`='$userid'");
+
+                                            $confirmed = 1;
+                                            $confirm_code = null;
+
+                                            $updatequery = $dbh->prepare("UPDATE `racers` SET `confirmed`= :confirmed, `confirm_code`= :confirm_code WHERE `id`='$userid'");
+                                            $updatequery->bindParam(":confirmed", $confirmed);
+                                            $updatequery->bindParam(":confirm_code", $confirm_code);
                                             $updatequery->execute();
 
                                             echo '<h3 class="center-align">Email confirmation success!</h3><p class="flow-text center-align">Email confirmation was successful, you can now log in.</p>';

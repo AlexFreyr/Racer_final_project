@@ -7,6 +7,7 @@
  *              and log them in if correct information is supplied.
  */
     include "connection/conn.php";
+    session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -22,6 +23,11 @@
 
     if(password_verify($password, $password_hash) && $confirmed == 1){
         print "Success";
+
+        $token = md5(password_hash($username + "token", PASSWORD_BCRYPT));
+
+        $_SESSION['user_token'] = $token; //Start a new session
+        $_SESSION['username'] = $username;
     }else{
         print "Failure";
     }

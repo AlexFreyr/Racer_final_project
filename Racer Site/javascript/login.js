@@ -49,6 +49,7 @@ function login(username, password){
                 $('#login-form').append($("<p class='flow-text red-text' id='error-text'>Incorrect username/password</p>"))
             }else if(html == "Success"){
                 $('#error-text').remove();
+                window.location = "http://vorur.info/userpage.php";
             }
         },
         failure: function(html) {

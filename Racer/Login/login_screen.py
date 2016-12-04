@@ -55,7 +55,7 @@ class StartPage(tk.Frame):
         login = Login()
         if login.login(username, password):
             self.destroy_window()
-            r = RunGame(login.id, login.user)
+            r = RunGame(login.id, login.user, login.highscore)
             r.run_main()
         else:
             incorrect_text = tk.Label(self, text="Incorrect username/password", font=MEDIUM_FONT, fg="Red")

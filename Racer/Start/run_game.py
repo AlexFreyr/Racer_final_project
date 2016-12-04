@@ -4,6 +4,7 @@ import os
 import time
 from Menu.menu import Pause
 from Text.text import Text
+from UpdateScore.ScoreUpdate import runupdate
 from Login.login import Login
 
 
@@ -31,6 +32,21 @@ class Run:
         pygame.mixer.init()
         pygame.mixer.music.load('C:\\Users\\Remi\\Desktop\\Racer\\Music\\razersoundtrack.mp3')
         self.run_game()
+
+    def updateScore(self, lastscore, highscore, user_id):
+        self.lastScore = lastscore
+        self.highscore = highscore
+        self.user_id = user_id
+
+        print(user_id)
+        print(lastscore)
+        print(highscore)
+
+        if highscore < lastscore:
+            runupdate(highscore, lastscore, user_id)
+
+        else:
+            print("No new high score")
 
     def cars(self, carsX, carsY):
         self.screen.blit(self.carsImg, (carsX, carsY))
@@ -160,32 +176,26 @@ class Run:
                 thing_speed += 0.5
 
             if x >= thing_startx and x <= thing_startx + thing_width + 24 and y < thing_starty + thing_height:
-                print('X crossover')
                 self.lastScore = dodged
                 self.crash()
 
             if x + car_width >= thing_startx and x + car_width <= thing_startx + thing_width + 24 and y < thing_starty + thing_height:
-                print('X crossover')
                 self.lastScore = dodged
                 self.crash()
 
             if x >= thing2_startx and x <= thing2_startx + thing2_width + 24 and y < thing2_starty + thing2_height:
-                print('X crossover')
                 self.lastScore = dodged
                 self.crash()
 
             if x + car_width >= thing2_startx and x + car_width <= thing2_startx + thing2_width + 24 and y < thing2_starty + thing2_height:
-                print('X crossover')
                 self.lastScore = dodged
                 self.crash()
 
             if x >= thing3_startx and x <= thing3_startx + thing3_width + 24 and y < thing3_starty + thing3_height:
-                print('X crossover')
                 self.lastScore = dodged
                 self.crash()
 
             if x + car_width >= thing3_startx and x + car_width <= thing3_startx + thing3_width + 24 and y < thing3_starty + thing3_height:
-                print('X crossover')
                 self.lastScore = dodged
                 self.crash()
 

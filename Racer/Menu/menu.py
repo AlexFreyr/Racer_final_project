@@ -1,5 +1,8 @@
+# coding=utf-8
+"""
+Menu and pause that the user interacts with and has the ability to select different options
+"""
 import pygame
-
 from Buttons.button import SquareButton
 from Settings.settings import Settings
 from Text.game_text import *
@@ -18,13 +21,19 @@ WHITE = (255, 255, 255)
 LIGHT_GREY = (207, 207, 207)
 
 
-class Menu:  # Menu class for when the game starts
+class Menu:
+    """
+    Initialize the menu when login is complete
+    """
     def __init__(self, screen):
         self.screen = screen
         self.start_menu()
 
     @staticmethod
     def background_color(color1, color2):  # TODO: Fix the function to display the two colors fading in and out
+        """
+        Makes the background fade in and out of two colors
+        """
         global fade_1, fade_2, fade_3
 
         if not fade_1 and not fade_2 and not fade_3:
@@ -57,12 +66,12 @@ class Menu:  # Menu class for when the game starts
             if color1[2] == color2[2]:
                 fade_3 = False
 
-        # print(color1)
-        # print(color2)
-
         return color1[0], color1[1], color1[2]
 
     def start_menu(self):
+        """
+        This is the menu that controls the user actions
+        """
         global BACKGROUND
         running = True
         clock = pygame.time.Clock()
@@ -88,7 +97,7 @@ class Menu:  # Menu class for when the game starts
                     if start_button.is_hover():  # Start game
                         running = False
                     if settings_button.is_hover():
-                        #Settings(self.screen)
+                        # Settings(self.screen)
                         pass
 
             BACKGROUND = self.background_color(color1, color2)
@@ -104,12 +113,18 @@ class Menu:  # Menu class for when the game starts
             pygame.display.flip()
 
 
-class Pause:  # Pause class for when the game is paused
+class Pause:
+    """
+    Pause menu that is called when the user pauses the game
+    """
     def __init__(self, screen):
         self.screen = screen
         self.pause_menu()
 
     def pause_menu(self):
+        """
+        This is the pause menu that controls the user actions
+        """
         running = True
 
         unpause_button = SquareButton(self.screen, 100, 200, 150, 50, WHITE, LIGHT_GREY, text_button_stop_pause)

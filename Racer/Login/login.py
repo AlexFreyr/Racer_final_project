@@ -1,9 +1,16 @@
+# coding=utf-8
+"""
+Login script that gets the user id, username and score from the database
+"""
 import pymysql
 import pymysql.cursors
 import bcrypt
 
 
 class Login:
+    """
+    Makes the connection to the database
+    """
     def __init__(self):
         self.connection = pymysql.connect(host='vorur.info',
                                           user='developer',
@@ -16,6 +23,10 @@ class Login:
         self.highscore = None
 
     def login(self, username, password):
+        """
+        This function returns true or false if the user enters
+        the correct username and password to an account
+        """
         with self.connection.cursor() as cursor:
             sql = "SELECT `id`,`username`,`password` FROM `racers` WHERE `username`=%s"
             cursor.execute(sql, username)
@@ -30,6 +41,8 @@ class Login:
                 self.user = result["username"]
                 self.highscore = highscore_result["score"]
                 self.connection.close()
-                if bcrypt.hashpw(password.encode('utf-8'), result['password'].encode('utf-8')) == result['password'].encode('utf-8'):
+
+                login_result = result['password'].encode('utf-8')
+                if bcrypt.hashpw(password.encode('utf-8'), login_result) == login_result:
                     return True
             return False

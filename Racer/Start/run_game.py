@@ -57,12 +57,6 @@ class Run:
         text_msg = " High Score: " + str(self.highscore) + " Score: " + str(count)
         t.draw_text_raw(text_msg, 120, 20, size=25, font_color=WHITE)
 
-    def draw_car(self, car_x, car_y, image):
-        """
-        Draws the cars
-        """
-        self.screen.blit(image, (car_x, car_y))
-
     def crash(self, last_score, highscore):
         """
         Will display the crash screen for 3 seconds

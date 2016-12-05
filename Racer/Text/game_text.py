@@ -1,5 +1,5 @@
 # Game menu's
-text_game_title = "Title here"
+text_game_title = "Racer"
 text_game_caption = "Caption here"
 text_button_exit = "Exit"
 text_button_stop_pause = "Resume"

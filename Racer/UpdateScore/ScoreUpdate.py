@@ -1,6 +1,6 @@
 import pymysql
 import pymysql.cursors
-import bcrypt
+
 
 class Update:
     def __init__(self):
@@ -11,11 +11,12 @@ class Update:
                                           charset='utf8mb4',
                                           cursorclass=pymysql.cursors.DictCursor)
 
-   def runupdate(self, highscore, lastScore, user_id):
-    if lastScore > highscore:
-      with self.connection.cursor() as cursor:
-          updateScore = "UPDATE `scores` SET `score`=%s WHERE `racer_id`=%s"
-          cursor.execute(updateScore, (lastScore, user_id))
-          print("Sucess")
-    else:
-        print("Fuck")
+    def run_update(self, highscore, lastScore, user_id):
+        if lastScore > highscore:
+            with self.connection.cursor() as cursor:
+                updateScore = "UPDATE `scores` SET `score`=%s WHERE `racer_id`=%s"
+                cursor.execute(updateScore, (lastScore, user_id))
+                cursor.close()
+                self.connection.commit()
+                self.connection.close()
+                print("Score updated")

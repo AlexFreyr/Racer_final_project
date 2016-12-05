@@ -4,9 +4,7 @@ import os
 import time
 from Menu.menu import Pause
 from Text.text import Text
-from UpdateScore.ScoreUpdate import runupdate
-from Login.login import Login
-
+from UpdateScore.ScoreUpdate import Update
 
 
 
@@ -30,23 +28,24 @@ class Run:
         self.display_width = display_width
         self.display_height = display_height
         pygame.mixer.init()
-        pygame.mixer.music.load('C:\\Users\\Remi\\Desktop\\Racer\\Music\\razersoundtrack.mp3')
+        pygame.mixer.music.load('C:\\Users\\Remi\\Desktop\\Racer\\Music\\razersoundtrack.wav')
         self.run_game()
 
-    def updateScore(self, lastscore, highscore, user_id):
+    def updateScore(self, lastscore, highscore):
         self.lastScore = lastscore
         self.highscore = highscore
-        self.user_id = user_id
 
-        print(user_id)
         print(lastscore)
         print(highscore)
 
         if highscore < lastscore:
-            runupdate(highscore, lastscore, user_id)
+            u = Update()
+            u.run_update(highscore, lastscore, self.user_id)
 
         else:
             print("No new high score")
+
+        self.highscore = lastscore
 
     def cars(self, carsX, carsY):
         self.screen.blit(self.carsImg, (carsX, carsY))
@@ -71,7 +70,7 @@ class Run:
     def car(self, x, y):
         self.screen.blit(self.carImg, (x, y))
 
-    def crash(self):
+    def crash(self, lastscore, highscore):
         t = Text(self.screen)
         respawn_timer = Text(self.screen)
 
@@ -84,6 +83,7 @@ class Run:
             time.sleep(1)
             seconds += 1
 
+        self.updateScore(lastscore, highscore)
         self.run_game()
 
     def run_game(self):
@@ -150,12 +150,12 @@ class Run:
             self.things_dodged(dodged)
 
             if x > self.display_width - car_width or x < 0:
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
                 self.lastScore = dodged
 
             if y > self.display_height - car_height or y < 0: # Endless crash loop
                 self.lastScore = dodged
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
 
             if thing_starty > self.display_height:
                 thing_starty = 0 - thing_height - 150
@@ -177,27 +177,27 @@ class Run:
 
             if x >= thing_startx and x <= thing_startx + thing_width + 24 and y < thing_starty + thing_height:
                 self.lastScore = dodged
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
 
             if x + car_width >= thing_startx and x + car_width <= thing_startx + thing_width + 24 and y < thing_starty + thing_height:
                 self.lastScore = dodged
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
 
             if x >= thing2_startx and x <= thing2_startx + thing2_width + 24 and y < thing2_starty + thing2_height:
                 self.lastScore = dodged
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
 
             if x + car_width >= thing2_startx and x + car_width <= thing2_startx + thing2_width + 24 and y < thing2_starty + thing2_height:
                 self.lastScore = dodged
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
 
             if x >= thing3_startx and x <= thing3_startx + thing3_width + 24 and y < thing3_starty + thing3_height:
                 self.lastScore = dodged
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
 
             if x + car_width >= thing3_startx and x + car_width <= thing3_startx + thing3_width + 24 and y < thing3_starty + thing3_height:
                 self.lastScore = dodged
-                self.crash()
+                self.crash(self.lastScore, self.highscore)
 
             pygame.display.update()
             clock.tick(144)

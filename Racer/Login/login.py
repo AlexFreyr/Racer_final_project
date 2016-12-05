@@ -25,6 +25,7 @@ class Login:
             highscoreResult = cursor.fetchone()
             print(highscoreResult)
 
+
             if result != None:
                 hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
                 print(hashed)

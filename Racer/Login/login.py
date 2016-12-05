@@ -2,6 +2,7 @@ import pymysql
 import pymysql.cursors
 import bcrypt
 
+
 class Login:
     def __init__(self):
         self.connection = pymysql.connect(host='vorur.info',
@@ -12,33 +13,23 @@ class Login:
                                           cursorclass=pymysql.cursors.DictCursor)
         self.id = None
         self.user = None
+        self.highscore = None
 
     def login(self, username, password):
         with self.connection.cursor() as cursor:
             sql = "SELECT `id`,`username`,`password` FROM `racers` WHERE `username`=%s"
-            cursor.execute(sql, (username))
+            cursor.execute(sql, username)
             result = cursor.fetchone()
-            print(result)
 
-            sqlHighScore = "SELECT `score` FROM `scores` WHERE `racer_id`=%s"
-            cursor.execute(sqlHighScore, (result["id"]))
-            highscoreResult = cursor.fetchone()
-            print(highscoreResult)
+            sql_highscore = "SELECT `score` FROM `scores` WHERE `racer_id`=%s"
+            cursor.execute(sql_highscore, (result["id"]))
+            highscore_result = cursor.fetchone()
 
-
-            if result != None:
-                hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-                print(hashed)
-                if bcrypt.hashpw(password.encode('utf-8'), result['password'].encode('utf-8')) == result['password'].encode('utf-8'):
-                    print('Hola')
-                else:
-                    print('Fuck')
-
+            if result is not None:
                 self.id = result["id"]
                 self.user = result["username"]
-                self.highscore = highscoreResult["score"]
+                self.highscore = highscore_result["score"]
                 self.connection.close()
-                return True
+                if bcrypt.hashpw(password.encode('utf-8'), result['password'].encode('utf-8')) == result['password'].encode('utf-8'):
+                    return True
             return False
-
-

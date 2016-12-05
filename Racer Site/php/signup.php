@@ -40,7 +40,7 @@ try {
             //Make a verification key that will be sent to the email provided
             $key = sha1($username);
 
-            // Insert information into the database
+            // Insert the user information into the database
             $statement = $dbh->prepare("INSERT INTO racers(username, email, password, confirm_code, confirmed) 
                                         VALUES(:username, :email, :password, :confirm_code, :confirmed)");
             $statement->execute(array(
@@ -49,6 +49,22 @@ try {
                 "password" => $hashed_password,
                 "confirm_code" => (string)$key,
                 "confirmed" => 0
+            ));
+
+            //Set the user score as 0
+            $racer_id = null;
+            $score = 0;
+            $sql = "SELECT id FROM racers WHERE username='$username'";
+            foreach ($dbh->query($sql) as $row)
+            {
+                $racer_id = $row["id"];
+            }
+
+            $statement = $dbh->prepare("INSERT INTO scores(score, racer_id)
+                                        VALUES(:score, :racer_id)");
+            $statement->execute(array(
+                "score" => $score,
+                "racer_id" => $racer_id
             ));
 
             //Email information
@@ -69,12 +85,12 @@ try {
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-            if(mail($email, $subject, $message, $headers)){ //If email was sent successfully
-                echo "Success";
-            }else{
-                echo "Invalid"; //Return this if there was a problem sending the email, the js file handles the rest.
-                //TODO: Make the js handle this exception
-            }
+        }
+        if(mail($email, $subject, $message, $headers)){
+            echo "Success"; //If email was sent successfully
+        }else{
+            echo "Invalid"; //Return this if there was a problem sending the email, the js file handles the rest.
+            //TODO: Make the js handle this exception
         }
     }
 }catch (Exception $e){

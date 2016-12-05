@@ -13,12 +13,14 @@
 
     $password_hash = null;
     $confirmed = null;
-    $sql = "SELECT `password`, `confirmed` FROM `racers` WHERE `username`='$username'";
+    $id = null;
+    $sql = "SELECT `id`, `password`, `confirmed` FROM `racers` WHERE `username`='$username'";
 
     foreach ($dbh->query($sql) as $row)
     {
         $password_hash = $row["password"];
         $confirmed = $row["confirmed"];
+        $id = $row["id"];
     }
 
     if(password_verify($password, $password_hash) && $confirmed == 1){
@@ -28,6 +30,7 @@
 
         $_SESSION['user_token'] = $token; //Start a new session
         $_SESSION['username'] = $username;
+        $_SESSION['id'] = $id;
     }else{
         print "Failure";
     }

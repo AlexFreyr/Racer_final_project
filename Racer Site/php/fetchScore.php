@@ -4,6 +4,7 @@
  * Description: Load the data when page loads
  */
     include "connection/conn.php";
+    session_start();
 
     $sql = "SELECT racers.username AS username, scores.score AS score
             FROM racers
@@ -17,10 +18,19 @@
     {
         $username = $row["username"];
         $score = $row["score"];
+
         if($counter % 2 == 0){
-            echo "<tr><td> $username </td><td> $score </td></tr>";
+            if (strtolower($username) == strtolower($_SESSION["username"])){
+                echo "<tr class='green-text'><td> $username </td><td> $score </td></tr>";
+            }else{
+                echo "<tr><td> $username </td><td> $score </td></tr>";
+            }
         }else{
-            echo "<tr class='grey lighten-3'><td> $username </td><td> $score </td></tr>";
+            if (strtolower($username) == strtolower($_SESSION["username"])) {
+                echo "<tr class='green-text grey lighten-3'><td> $username </td><td> $score </td></tr>";
+            }else{
+                echo "<tr class='grey lighten-3'><td> $username </td><td> $score </td></tr>";
+            }
         }
         $counter += 1;
     }

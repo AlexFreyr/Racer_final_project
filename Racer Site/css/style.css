@@ -36,7 +36,7 @@ footer.page-footer{
 h3 {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-h5 {
+.caption h5 {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .bannerFAQ
@@ -45,3 +45,27 @@ h5 {
     margin: 0 auto;
     margin-bottom: 25px;
 }
+.icon-blue{
+    background-color: red;   
+}
+ul .python:hover
+{
+    background-color: #ffab00;
+    border-radius: 15px;    
+}
+ul .met:hover
+{
+    background-color: #ef5350;
+    border-radius: 15px;    
+}
+ul .git:hover
+{
+    background-color: #4527a0;
+    border-radius: 15px;    
+}
+ul li 
+{
+    padding: 10px 10px 10px 10px;  
+}
+
+

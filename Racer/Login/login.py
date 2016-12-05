@@ -32,11 +32,11 @@ class Login:
             cursor.execute(sql, username)
             result = cursor.fetchone()
 
-            sql_highscore = "SELECT `score` FROM `scores` WHERE `racer_id`=%s"
-            cursor.execute(sql_highscore, (result["id"]))
-            highscore_result = cursor.fetchone()
-
             if result is not None:
+                sql_highscore = "SELECT `score` FROM `scores` WHERE `racer_id`=%s"
+                cursor.execute(sql_highscore, (result["id"]))
+                highscore_result = cursor.fetchone()
+
                 self.id = result["id"]
                 self.user = result["username"]
                 self.highscore = highscore_result["score"]
@@ -45,4 +45,4 @@ class Login:
                 login_result = result['password'].encode('utf-8')
                 if bcrypt.hashpw(password.encode('utf-8'), login_result) == login_result:
                     return True
-            return False
+        return False

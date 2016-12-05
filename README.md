@@ -20,4 +20,5 @@ The main focus on this project is that the users will be able to see each other 
 2. Races can take place online, so that you can see everyone play whilst you race around. (We're not sure how to pull this one off though)
 
 *More will be added if we find something that we might find interessing.*
+[Video that shows how to get started](https://youtu.be/KESXCeM-6b8)
 ## Remigiusz Ganiec, Alexander Freyr og Michael Jes

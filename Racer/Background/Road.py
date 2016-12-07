@@ -2,7 +2,6 @@
 """
 Controls the background and how it moves compared to the cars
 """
-import pygame
 
 
 class Road:
@@ -11,8 +10,7 @@ class Road:
     """
     def __init__(self, screen, road_img):
         self.screen = screen
-        self.road_img = pygame.image.load(road_img).convert_alpha()
-        self.background_rect = self.road_img.get_rect()
+        self.road_img = road_img
 
         self.x = 0
         self.y = 0
@@ -24,7 +22,6 @@ class Road:
         """
         Draws the road and moves it accordingly
         """
-        self.screen.blit(self.road_img, self.background_rect)
 
         self.screen.blit(self.road_img, (self.x, self.y))
         self.screen.blit(self.road_img, (self.x1, self.y1))

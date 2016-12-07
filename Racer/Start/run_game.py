@@ -28,7 +28,7 @@ class Run:
         self.clock = pygame.time.Clock()
         self.carImg = pygame.image.load(os.path.join('../src', 'blue_car.png'))
         self.carsImg = pygame.image.load(os.path.join('../src', 'cars.png'))
-        self.road_img = "../src/mainroad.png"
+        self.road_img = pygame.image.load(os.path.join('../src', 'mainroad.png')).convert_alpha()
         self.display_width = display_width
         self.display_height = display_height
 

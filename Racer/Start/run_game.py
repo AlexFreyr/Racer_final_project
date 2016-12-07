@@ -11,6 +11,7 @@ from Score.update import Update
 from Car.car import Car
 from Car.player import Player
 from Background.Road import Road
+from Music.Music import Music
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -32,9 +33,9 @@ class Run:
         self.display_width = display_width
         self.display_height = display_height
 
-        pygame.mixer.init()
-        pygame.mixer.music.load(os.path.join('../Music', 'racer.mp3'))
-        pygame.mixer.music.play(-1)
+        self.music = Music("../Music/racer.mp3")
+        self.music.play()
+
         self.run_game()
 
     def update_score(self, last_score, highscore):
@@ -105,6 +106,10 @@ class Run:
                         player.x_change = -10
                     if event.key == pygame.K_RIGHT:
                         player.x_change = 10
+                    if event.key == pygame.K_KP_MINUS:
+                        self.music.volume(-5)
+                    if event.key == pygame.K_KP_PLUS:
+                        self.music.volume(5)
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                         player.x_change = 0

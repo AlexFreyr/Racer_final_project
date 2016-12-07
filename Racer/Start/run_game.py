@@ -10,6 +10,7 @@ from Text.text import Text
 from Score.update import Update
 from Car.car import Car
 from Car.player import Player
+from Background.Road import Road
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -28,6 +29,7 @@ class Run:
         self.clock = pygame.time.Clock()
         self.carImg = pygame.image.load(os.path.join('../src', 'blue_car.png'))
         self.carsImg = pygame.image.load(os.path.join('../src', 'cars.png'))
+        self.road_img = "../src/mainroad.png"
         self.background_img = pygame.image.load(os.path.join('../src', 'mainroad.png')).convert_alpha()
         self.background_pos = [0, 0]
         self.display_width = display_width
@@ -90,6 +92,7 @@ class Run:
         y = (self.display_height * 0.75)
         player = Player(self.screen, x, y, 94, 214, self.carImg)
         car_list = [Car(self.screen, -600, 70, 190, self.carsImg)]
+        road = Road(self.screen, self.road_img)
 
         dodged = 0
         dodged_4 = False
@@ -109,7 +112,9 @@ class Run:
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                         player.x_change = 0
-            self.screen.blit(self.background_img, self.background_pos)
+
+            road.draw_road()
+            road.y_change += 0.1
 
             # Draw the player
             player.draw_car()

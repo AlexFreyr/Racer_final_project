@@ -131,7 +131,6 @@ class Pause:
         settings_button = SquareButton(self.screen, 100, 300, 150, 50, WHITE, LIGHT_GREY, text_button_settings)
         back_to_menu = SquareButton(self.screen, 100, 400, 150, 50, WHITE, LIGHT_GREY, text_button_back_to_menu)
         quit_button = SquareButton(self.screen, 100, 500, 150, 50, WHITE, LIGHT_GREY, text_button_exit)
-        quit_popup = Popup(self.screen)
 
         while running:
             for event in pygame.event.get():
@@ -146,7 +145,6 @@ class Pause:
                     if back_to_menu.is_hover():
                         Menu(self.screen)
                     if quit_button.is_hover():
-                        quit_popup.yes_no_popup("Are you sure you want to quit?")
                         pygame.quit()
                         quit()
 

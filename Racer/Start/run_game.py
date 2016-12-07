@@ -24,16 +24,14 @@ class Run:
         self.user_id = user_id
         self.user = user
         self.highscore = highscore
-        self.lastScore = 0
         self.screen = screen
         self.clock = pygame.time.Clock()
         self.carImg = pygame.image.load(os.path.join('../src', 'blue_car.png'))
         self.carsImg = pygame.image.load(os.path.join('../src', 'cars.png'))
         self.road_img = "../src/mainroad.png"
-        self.background_img = pygame.image.load(os.path.join('../src', 'mainroad.png')).convert_alpha()
-        self.background_pos = [0, 0]
         self.display_width = display_width
         self.display_height = display_height
+
         pygame.mixer.init()
         pygame.mixer.music.load(os.path.join('../Music', 'racer.mp3'))
         pygame.mixer.music.play(-1)
@@ -43,8 +41,6 @@ class Run:
         """
         Updates the highscore
         """
-        self.lastScore = last_score
-        self.highscore = highscore
 
         if highscore < last_score:
             u = Update()
@@ -113,8 +109,10 @@ class Run:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                         player.x_change = 0
 
+            # Draw the road and move it with the cars
             road.draw_road()
-            road.y_change += 0.1
+            road.y1 += car_list[0].y_change
+            road.y += car_list[0].y_change
 
             # Draw the player
             player.draw_car()

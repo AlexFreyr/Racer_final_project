@@ -83,8 +83,8 @@ class Run:
         Game controls and the game itself
         """
         running = True
-        clock = pygame.time.Clock()
 
+        clock = pygame.time.Clock()
         x = (self.display_width * 0.5)
         y = (self.display_height * 0.75)
         player = Player(self.screen, x, y, 94, 214, self.carImg)

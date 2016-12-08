@@ -11,8 +11,6 @@ import tkinter
 import os
 import time
 from tkinter import ttk
-from Login.login import Login
-from main import RunGame
 
 # coding=utf-8
 """

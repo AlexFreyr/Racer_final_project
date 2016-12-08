@@ -3,11 +3,20 @@
 Game executable file
 """
 
-from distutils.core import setup
-import py2exe
+import cx_Freeze
+import sys
 
-setup(name="Racer",
-      version="1.0",
-      description="Racer game",
-      data_files=[("", ["src/mainroad.png", "src/cars.png", "src/blue_car.png", "Music/racer.mp3"])],
-      console=["distribution.py"])
+base = None
+
+if sys.platform == 'win32':
+    base = "Win32GUI"
+
+executables = [cx_Freeze.Executable("distribution.py", base=base)]
+
+cx_Freeze.setup(
+    name="Racer",
+    options={"build_exe": {"packages":["tkinter", "pygame", "pymysql", "bcrypt"], "include_files": ["src/blue_car.png", "src/cars.png", "src/mainroad.png"]}},
+    version="0.01",
+    description="Racer game",
+    executables=executables
+)

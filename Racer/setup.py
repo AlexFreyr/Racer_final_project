@@ -1,8 +1,3 @@
-# coding=utf-8
-"""
-Game executable file
-"""
-
 from cx_Freeze import setup, Executable
 import sys
 

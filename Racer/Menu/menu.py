@@ -127,17 +127,20 @@ class Pause:
         """
         running = True
 
+        screen_title = Text(self.screen)
         unpause_button = SquareButton(self.screen, 100, 200, 150, 50, WHITE, LIGHT_GREY, text_button_stop_pause)
         settings_button = SquareButton(self.screen, 100, 300, 150, 50, WHITE, LIGHT_GREY, text_button_settings)
         back_to_menu = SquareButton(self.screen, 100, 400, 150, 50, WHITE, LIGHT_GREY, text_button_back_to_menu)
         quit_button = SquareButton(self.screen, 100, 500, 150, 50, WHITE, LIGHT_GREY, text_button_exit)
-        quit_popup = Popup(self.screen)
 
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if unpause_button.is_hover():
                         running = False
@@ -146,13 +149,13 @@ class Pause:
                     if back_to_menu.is_hover():
                         Menu(self.screen)
                     if quit_button.is_hover():
-                        quit_popup.yes_no_popup("Are you sure you want to quit?")
                         pygame.quit()
                         quit()
 
+            screen_title.draw_text_raw(text_game_paused, 540, 100, 50, font_color=WHITE)
             unpause_button.draw_button()
             settings_button.draw_button()
             back_to_menu.draw_button()
             quit_button.draw_button()
 
-            pygame.display.flip()
+            pygame.display.update()

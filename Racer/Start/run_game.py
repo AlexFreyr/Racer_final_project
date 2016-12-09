@@ -10,6 +10,8 @@ from Text.text import Text
 from Score.update import Update
 from Car.car import Car
 from Car.player import Player
+from Background.Road import Road
+from Music.Music import Music
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -23,26 +25,23 @@ class Run:
         self.user_id = user_id
         self.user = user
         self.highscore = highscore
-        self.lastScore = 0
         self.screen = screen
         self.clock = pygame.time.Clock()
         self.carImg = pygame.image.load(os.path.join('../src', 'blue_car.png'))
         self.carsImg = pygame.image.load(os.path.join('../src', 'cars.png'))
-        self.background_img = pygame.image.load(os.path.join('../src', 'mainroad.png')).convert_alpha()
-        self.background_pos = [0, 0]
+        self.road_img = pygame.image.load(os.path.join('../src', 'mainroad.png')).convert_alpha()
         self.display_width = display_width
         self.display_height = display_height
-        pygame.mixer.init()
-        pygame.mixer.music.load(os.path.join('../Music', 'racer.mp3'))
-        pygame.mixer.music.play(-1)
+
+        self.music = Music("../Music/racer.mp3")
+        self.music.play()
+
         self.run_game()
 
     def update_score(self, last_score, highscore):
         """
         Updates the highscore
         """
-        self.lastScore = last_score
-        self.highscore = highscore
 
         if highscore < last_score:
             u = Update()
@@ -84,12 +83,13 @@ class Run:
         Game controls and the game itself
         """
         running = True
-        clock = pygame.time.Clock()
 
+        clock = pygame.time.Clock()
         x = (self.display_width * 0.5)
         y = (self.display_height * 0.75)
         player = Player(self.screen, x, y, 94, 214, self.carImg)
         car_list = [Car(self.screen, -600, 70, 190, self.carsImg)]
+        road = Road(self.screen, self.road_img)
 
         dodged = 0
         dodged_4 = False
@@ -106,10 +106,18 @@ class Run:
                         player.x_change = -10
                     if event.key == pygame.K_RIGHT:
                         player.x_change = 10
+                    if event.key == pygame.K_KP_MINUS:
+                        self.music.volume(-5)
+                    if event.key == pygame.K_KP_PLUS:
+                        self.music.volume(5)
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                         player.x_change = 0
-            self.screen.blit(self.background_img, self.background_pos)
+
+            # Draw the road and move it with the cars
+            road.draw_road()
+            road.y1 += car_list[0].y_change
+            road.y += car_list[0].y_change
 
             # Draw the player
             player.draw_car()

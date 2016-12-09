@@ -27,13 +27,13 @@ class Run:
         self.highscore = highscore
         self.screen = screen
         self.clock = pygame.time.Clock()
-        self.carImg = pygame.image.load(os.path.join('../src', 'blue_car.png'))
-        self.carsImg = pygame.image.load(os.path.join('../src', 'cars.png'))
-        self.road_img = pygame.image.load(os.path.join('../src', 'mainroad.png')).convert_alpha()
+        self.carImg = pygame.image.load(os.path.join('blue_car.png'))
+        self.carsImg = pygame.image.load(os.path.join('cars.png'))
+        self.road_img = pygame.image.load(os.path.join('mainroad.png')).convert_alpha()
         self.display_width = display_width
         self.display_height = display_height
 
-        self.music = Music("../Music/racer.mp3")
+        self.music = Music("racer.mp3")
         self.music.play()
 
         self.run_game()

@@ -21,9 +21,9 @@
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">This project is powered by</h5>
                     <ul class="section">
-                        <li class="git"><a class="grey-text text-lighten-3" href="https://github.com/AlexKnows/Racer_final_project"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
-                        <li class="met"><a class="grey-text text-lighten-3" href="http://materializecss.com/"><i class="fa fa-code" aria-hidden="true"></i> Materialize</a></li>
-                        <li class="python"><a class="grey-text text-lighten-3" href="https://python.org"><i class="fa fa-pied-piper" aria-hidden="true"></i> Python</a></li>
+                        <a class="grey-text text-lighten-3" href="https://github.com/AlexKnows/Racer_final_project"><li class="git"><i class="fa fa-github" aria-hidden="true"></i> Github</li></a>
+                        <a class="grey-text text-lighten-3" href="http://materializecss.com/"><li class="met"><i class="fa fa-code" aria-hidden="true"></i> Materialize</li></a>
+                        <a class="grey-text text-lighten-3" href="https://python.org"><li class="python"><i class="fa fa-pied-piper" aria-hidden="true"></i> Python</li></a>
                     </ul>
                 </div>
             </div>

@@ -7,7 +7,7 @@ The language we will focus on for the project is Python for the actual game it s
 
 ## How to play the game
 1. Download the game from github
-2. Go to the [racer sign up page](http://vorur.info/login.php). And sign up for a new account
+2. Go to the [racer sign up page](https://pastebin.com/BurJFMvd). And sign up for a new account
 3. Launch game from where you downloaded it
 4. Sign in
 5. Now you're playing!
@@ -20,5 +20,5 @@ The main focus on this project is that the users will be able to see each other 
 2. Races can take place online, so that you can see everyone play whilst you race around. (We're not sure how to pull this one off though)
 
 *More will be added if we find something that we might find interessing.*
-[Video that shows how to get started](https://youtu.be/KESXCeM-6b8)
+[Video that shows how to get started](https://pastebin.com/BurJFMvd)
 ## Remigiusz Ganiec, Alexander Freyr og Michael Jes

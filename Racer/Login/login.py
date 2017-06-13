@@ -12,7 +12,7 @@ class Login:
     Makes the connection to the database
     """
     def __init__(self):
-        self.connection = pymysql.connect(host='vorur.info',
+        self.connection = pymysql.connect(host='hostname',
                                           user='developer',
                                           password='Vorur-dev123',
                                           db='racer',
